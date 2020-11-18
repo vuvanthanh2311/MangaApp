@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1040129598170",
+    "firebase_url": "https://manga-bead7.firebaseio.com",
+    "project_id": "manga-bead7",
+    "storage_bucket": "manga-bead7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040129598170:android:9c98be821a400fd7353be3",
+        "android_client_info": {
+          "package_name": "com.example.mangaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040129598170-rhcr06e063rbdh727cv3cd6gp574dmum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLEtxgsas6ozT7tZ1Qa0jsNTEtqL2PelM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1040129598170-rhcr06e063rbdh727cv3cd6gp574dmum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

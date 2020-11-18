@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:scrollbars="none"
+    android:fillViewport="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/llHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <fragment
+            android:name="com.example.mangaapp.fragment.fragment_banner"
+            android:id="@+id/fragmentbanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </fragment>
+        <fragment
+            android:layout_marginTop="40dp"
+            android:name="com.example.mangaapp.fragment.fragment_dexuat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragmentdexuat"
+            />
+
+        <fragment
+            android:layout_marginTop="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.example.mangaapp.fragment.fragment_capnhathangngay"/>
+
+    </LinearLayout>
+</ScrollView>

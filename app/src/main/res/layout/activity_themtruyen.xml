@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical">
+        <ImageView
+            android:src="@drawable/langquanxindung"
+            android:id="@+id/img_truyen"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="id"
+                android:id="@+id/edt_id"
+                android:background="@drawable/edt_background"
+                />
+            <EditText
+                android:layout_marginTop="5dp"
+                android:hint="ten truyen"
+                android:background="@drawable/edt_background"
+                android:id="@+id/edtnametruyen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:hint="ten tac gia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_tacgia"
+                android:background="@drawable/edt_background"
+                android:layout_marginTop="10dp"/>
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_background"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Save"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical">
+        <CheckBox
+            android:layout_marginLeft="10dp"
+            android:id="@+id/hanhdong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hành động"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/bachhop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bách hợp"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/haihuoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hài hước"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <CheckBox
+            android:layout_marginLeft="10dp"
+            android:id="@+id/kinhdi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kinh dị"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/maohiem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mạo hiểm"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/sieunangluc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Siêu năng lực"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <CheckBox
+            android:layout_marginLeft="10dp"
+            android:id="@+id/truonghoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Trường học"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/tongtai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tổng tài"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/tinhyeu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tình yêu"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <CheckBox
+            android:layout_marginLeft="10dp"
+            android:id="@+id/vientuong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="viễn tưởng"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/xuyenkhong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xuyên không"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/huyenhuyen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Huyền huyễn"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <CheckBox
+            android:layout_marginLeft="10dp"
+            android:id="@+id/dammy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đam mỹ"/>
+
+        <CheckBox
+            android:layout_marginLeft="40dp"
+            android:id="@+id/dafull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đã full"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+    </LinearLayout>
+
+</LinearLayout>
