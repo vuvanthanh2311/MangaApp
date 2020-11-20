@@ -38,8 +38,8 @@ public class phanloaifragment extends Fragment {
         View view = inflater.inflate(R.layout.phanloai_fragment, container, false);
         viewPager =view.findViewById(R.id.vpg_phanloai);
         tabLayout =view.findViewById(R.id.tbl_phanloai);
-        setViewpager();
         tabLayout.setupWithViewPager(viewPager);
+        setViewpager();
         return view;
     }
     private void setViewpager(){

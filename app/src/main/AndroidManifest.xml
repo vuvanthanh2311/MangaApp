@@ -12,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".detailtruyen.detail_truyen"></activity>
+        <activity android:name=".detailtruyen.ChapterActivity"></activity>
+        <activity android:name=".detailtruyen.detail_truyen" />
         <activity android:name=".login.Start" />
-        <activity android:name=".Storage" />
         <activity android:name=".themtruyen" />
         <activity android:name=".login.Login" />
         <activity android:name=".login.Register" />
