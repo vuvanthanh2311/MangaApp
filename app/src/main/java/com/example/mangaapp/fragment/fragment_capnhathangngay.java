@@ -62,6 +62,7 @@ public class fragment_capnhathangngay extends Fragment {
         final DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(),2));
         listtruyen = new ArrayList<>();
+
         RcvAdapter = new RcvhangngayAdapter(view.getContext(),listtruyen);
         recyclerView.setAdapter(RcvAdapter);
 

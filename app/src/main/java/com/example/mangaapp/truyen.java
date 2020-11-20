@@ -1,5 +1,7 @@
 package com.example.mangaapp;
 
+import java.util.List;
+
 public class truyen {
     public String id;
     public String tentruyen;
