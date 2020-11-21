@@ -24,11 +24,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
 
 public class fragment_dexuat extends Fragment {
+    FirebaseStorage storage = FirebaseStorage.getInstance("gs://manga-bead7.appspot.com");
     View view;
     private RcvdexuatAdapter RcvAdapter;
     private RecyclerView recyclerView;
@@ -49,6 +51,7 @@ public class fragment_dexuat extends Fragment {
                 truyen item = listtruyen.get(position);
                 Intent intent = new Intent(view.getContext(), detail_truyen.class);
                 intent.putExtra("id",item.id);
+                intent.putExtra("tentruyen",item.tentruyen);
                 startActivity(intent);
             }
         });

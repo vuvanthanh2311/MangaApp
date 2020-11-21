@@ -48,6 +48,7 @@ public class fragment_huyenhuyen extends Fragment {
                 truyen item = listtruyen.get(position);
                 Intent intent = new Intent(view.getContext(), detail_truyen.class);
                 intent.putExtra("id",item.id);
+                intent.putExtra("tentruyen",item.tentruyen);
                 startActivity(intent);
             }
         });
