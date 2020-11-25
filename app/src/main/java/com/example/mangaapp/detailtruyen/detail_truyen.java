@@ -167,7 +167,7 @@ public class detail_truyen extends AppCompatActivity {
                         listID.add(idd);
                     }
                     for (int i = 0 ; i < listID.size() ; i++){
-                        if (listID.get(0).equals(id)){
+                        if (listID.get(i).equals(id)){
                             llfavorite.setVisibility(View.GONE);
                             llfavoritered.setVisibility(View.VISIBLE);
                         }
