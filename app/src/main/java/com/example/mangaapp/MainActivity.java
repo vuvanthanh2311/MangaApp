@@ -2,17 +2,14 @@ package com.example.mangaapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.example.mangaapp.bottomnav.personfragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_calendar:
                         viewPager.setCurrentItem(1);
                         break;
-                    case R.id.nav_explore:
+//                    case R.id.nav_explore:
+//                        viewPager.setCurrentItem(2);
+//                        break;
+                    case R.id.nav_favorite:
                         viewPager.setCurrentItem(2);
                         break;
-                    case R.id.nav_favorite:
-                        viewPager.setCurrentItem(3);
-                        break;
                     case R.id.nav_person:
-                        viewPager.setCurrentItem(4);
+                        viewPager.setCurrentItem(3);
                         break;
 
                 }
@@ -72,13 +69,13 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         bottomNavigationView.getMenu().findItem(R.id.nav_calendar).setChecked(true);
                         break;
+//                    case 2:
+//                        bottomNavigationView.getMenu().findItem(R.id.nav_explore).setChecked(true);
+//                        break;
                     case 2:
-                        bottomNavigationView.getMenu().findItem(R.id.nav_explore).setChecked(true);
-                        break;
-                    case 3:
                         bottomNavigationView.getMenu().findItem(R.id.nav_favorite).setChecked(true);
                         break;
-                    case 4:
+                    case 3:
                         bottomNavigationView.getMenu().findItem(R.id.nav_person).setChecked(true);
                         break;
                 }

@@ -23,6 +23,7 @@
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@color/custom_color_nav"
         app:itemTextColor="@color/custom_color_nav"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu" >
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

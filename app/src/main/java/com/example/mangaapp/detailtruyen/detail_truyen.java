@@ -13,19 +13,24 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mangaapp.R;
 import com.example.mangaapp.RcvtheloaiAdapter;
+import com.example.mangaapp.login.Login;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,18 +44,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class detail_truyen extends AppCompatActivity {
+    private FirebaseAuth mAuth;
     FirebaseStorage storage = FirebaseStorage.getInstance("gs://manga-bead7.appspot.com");
     DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
     RcvtheloaiAdapter rcvtheloaiAdapter;
     List<String> list ;
-
+    ArrayList<String> listID = null;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     fragment_Chitiet chitiet;
     fragment_Chapter chapter;
     TextView tvtentruyen;
-    ImageView imgtruyen;
+    LinearLayout  llfavorite,llfavoritered;
+    ImageView imgtruyen ,imgshare;
+    Button btnbdx;
     RecyclerView rcvtheloai;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,10 +69,16 @@ public class detail_truyen extends AppCompatActivity {
         tvtentruyen = findViewById(R.id.tvdetail_tentruyen);
         imgtruyen = findViewById(R.id.img_detailtruyen);
         rcvtheloai = findViewById(R.id.rcv_detailtheloai);
+        btnbdx = findViewById(R.id.btn_bdx);
+        imgshare =findViewById(R.id.img_share);
+        llfavorite = findViewById(R.id.ll_favorite);
+        llfavoritered =findViewById(R.id.ll_favorite_red);
+        mAuth = FirebaseAuth.getInstance();
+
 
         tabLayout.setupWithViewPager(viewPager);
         Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
+        id = intent.getStringExtra("id");
         String ten = intent.getStringExtra("tentruyen");
         getData(id,ten);
 
@@ -71,7 +86,15 @@ public class detail_truyen extends AppCompatActivity {
         chapter = new fragment_Chapter();
         chitiet.getdata(id);
         chapter.getdata(id);
-
+        btnbdx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(detail_truyen.this, ChapterActivity.class);
+                intent.putExtra("chap","1");
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
         setViewpager();
 
 
@@ -120,6 +143,57 @@ public class detail_truyen extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
+                }
+            });
+        }
+    }
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    private void updateUI(FirebaseUser currentUser) {
+        if(currentUser!=null){
+            final String uid = currentUser.getUid();
+            Toast.makeText(this,uid,Toast.LENGTH_SHORT).show();
+            mData.child("follow").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    listID = new ArrayList<>();
+                    for (DataSnapshot item : snapshot.getChildren()){
+                        String idd = (String) item.getValue();
+                        listID.add(idd);
+                    }
+                    for (int i = 0 ; i < listID.size() ; i++){
+                        if (listID.get(0).equals(id)){
+                            llfavorite.setVisibility(View.GONE);
+                            llfavoritered.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            llfavorite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    llfavorite.setVisibility(View.GONE);
+                    llfavoritered.setVisibility(View.VISIBLE);
+                    mData.child("follow").child(uid).child(id).setValue(id);
+                }
+            });
+            llfavoritered.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    llfavoritered.setVisibility(View.GONE);
+                    llfavorite.setVisibility(View.VISIBLE);
+                    mData.child("follow").child(uid).child(id).removeValue();
                 }
             });
         }
