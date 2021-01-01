@@ -25,9 +25,9 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 return new Homefragment();
             case 1:
                 return new phanloaifragment();
+//            case 2:
+//                return new Explorefragment();
             case 2:
-                return new Explorefragment();
-            case 3:
                 return new favoritefragment();
             default:
                 return new personfragment();
@@ -36,6 +36,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return 4;
     }
 }

@@ -31,7 +31,7 @@ public class fragment_Chitiet extends Fragment {
         tvnoidung = view.findViewById(R.id.tv_noidung);
         mData = FirebaseDatabase.getInstance().getReference();
         if (id !=null) {
-            Toast.makeText(view.getContext(), id + "chitiet", Toast.LENGTH_SHORT).show();
+
             mData.child("detailmanga").child(id).child("nội dung").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

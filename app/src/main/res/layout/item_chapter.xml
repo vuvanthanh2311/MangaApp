@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:gravity="center">
     <ImageView
-        android:scaleType="fitXY"
+        android:scaleType="centerInside"
         android:id="@+id/img_chapter"
         android:layout_width="340dp"
         android:layout_height="wrap_content"/>

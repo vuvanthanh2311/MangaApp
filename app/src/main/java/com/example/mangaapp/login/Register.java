@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,6 +73,7 @@ public class Register extends AppCompatActivity {
         login =(TextView)findViewById(R.id.tvLogin);
     }
 
+
     private void Register(final String name, String email, String password){
 
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -94,7 +96,7 @@ public class Register extends AppCompatActivity {
                                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                                         if (error == null) {
                                             Toast.makeText(Register.this, "Register Successful", Toast.LENGTH_SHORT).show();
-                                        Intent intent =new Intent(Register.this, Start.class);
+                                        Intent intent =new Intent(Register.this, Login.class);
                                         startActivity(intent);
                                         finish();
                                         } else

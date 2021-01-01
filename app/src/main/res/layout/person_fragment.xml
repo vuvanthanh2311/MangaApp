@@ -2,14 +2,112 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
-
-    <Button
-        android:id="@+id/btnthemtruyen"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll_person"
+        android:padding="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Thêm truyện"
-        android:textSize="30dp"
-        android:gravity="center"/>
+        android:layout_height="180dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:src="@drawable/person"
+            android:id="@+id/img_person"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/custom_img_person"/>
+        <TextView
+            android:id="@+id/tv_person"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:padding="5dp"/>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="20dp"
+                android:id="@+id/tv_naptien"
+                android:text="Nạp tiền"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:textSize="20dp"
+                android:text="Khung avatar của tôi"
+                android:id="@+id/tv_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:textSize="20dp"
+                android:text="Tin nhắn của tôi"
+                android:id="@+id/tv_tinnhan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:textSize="20dp"
+                android:text="Bình luận của tôi"
+                android:id="@+id/tv_binhluan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:textSize="20dp"
+                android:text="Phản hồi ý kiến"
+                android:id="@+id/tv_phanhoi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:textSize="20dp"
+                android:text="Giới thiệu chúng tôi"
+                android:id="@+id/tv_gioithieu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:textSize="20dp"
+                android:text="Đăng nhập"
+                android:id="@+id/tv_dangnhap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:textSize="20dp"
+                android:text="Đăng xuất"
+                android:id="@+id/tv_dangxuat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+<!--    <Button-->
+<!--        android:id="@+id/btnthemtruyen"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Thêm truyện"-->
+<!--        android:textSize="30dp"-->
+<!--        android:gravity="center"/>-->
 
 </LinearLayout>

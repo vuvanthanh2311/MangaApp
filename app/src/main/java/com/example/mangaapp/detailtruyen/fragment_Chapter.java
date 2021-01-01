@@ -66,7 +66,6 @@ public class fragment_Chapter extends Fragment {
                         @Override
                         public void onSuccess(ListResult listResult) {
                             for (StorageReference prefix : listResult.getPrefixes()) {
-                                Toast.makeText(getContext(), prefix.toString(), Toast.LENGTH_SHORT).show();
                                 list.add(prefix.toString());
 
                             }
