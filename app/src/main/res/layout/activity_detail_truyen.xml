@@ -25,6 +25,14 @@
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"/>
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:id="@+id/img_detail_back"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_gravity="top"
+                android:outlineAmbientShadowColor="#000000"
+                android:src="@drawable/ic_baseline_arrow_back_white_24" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,7 +176,7 @@
                     android:id="@+id/btn_bdx"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/btn_detail_bg"
+                    android:background="@drawable/button_red"
                     android:text="Bắt đầu xem"
                     android:textSize="18dp"/>
             </LinearLayout>

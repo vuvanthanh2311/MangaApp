@@ -1,5 +1,6 @@
 package com.example.mangaapp.fragment;
 
+import android.content.Intent;
 import android.icu.text.UFormat;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,24 +18,33 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.mangaapp.Find;
 import com.example.mangaapp.R;
 import com.example.mangaapp.detailtruyen.ChapterActivity;
+import com.example.mangaapp.truyen;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class fragment_banner extends Fragment {
     View view;
     FirebaseStorage storage = FirebaseStorage.getInstance("gs://manga-bead7.appspot.com");
     private ViewFlipper viewFlipper;
-    Animation in, out;
-    ImageView next, before;
+    Animation in, out, move_in, move_out;
+    ImageView next, before, find;
     ArrayList<String> list;
+    ArrayList<truyen> listtruyen;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,10 +52,21 @@ public class fragment_banner extends Fragment {
         viewFlipper = view.findViewById(R.id.vfp_banner);
         next = view.findViewById(R.id.img_next);
         before = view.findViewById(R.id.img_before);
-        getData();
+        find = view.findViewById(R.id.Icon_search);
+        getdata();
+//        for (int i=0; i<=listtruyen.size();i++){
+//            truyen m = listtruyen.get(i);
+//            ImageView imageView = new ImageView(view.getContext());
+//            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+//            Picasso.get().load(m.banner).into(imageView);
+//            viewFlipper.addView(imageView);
+//        }
+
 
         in = AnimationUtils.loadAnimation(view.getContext(),R.anim.fade_in);
         out = AnimationUtils.loadAnimation(view.getContext(), R.anim.fade_out);
+//        move_in = AnimationUtils.loadAnimation(view.getContext(),R.anim.anim_move);
+//        move_out = AnimationUtils.loadAnimation(view.getContext(),R.anim.anim_move_out);
         viewFlipper.setInAnimation(in);
         viewFlipper.setOutAnimation(out);
         viewFlipper.setFlipInterval(9000);
@@ -72,48 +93,86 @@ public class fragment_banner extends Fragment {
                 }
             }
         });
+        find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), Find.class);
+                startActivity(intent);
+            }
+        });
+        viewFlipper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return view;
     }
     private void getData(){
         list = new ArrayList<>();
-        StorageReference listRef = storage.getReference().child("imgmanga");
-        listRef.listAll()
-                .addOnSuccessListener(new OnSuccessListener<ListResult>() {
-                    @Override
-                    public void onSuccess(ListResult listResult) {
-                        for (StorageReference prefix : listResult.getPrefixes()) {
-                            // All the prefixes under listRef.
-                            // You may call listAll() recursively on them.
-                        }
+        DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
+        mData.child("manga").limitToLast(8).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                truyen m = snapshot.getValue(truyen.class);
+                listtruyen.add(m);
+            }
 
-                        for (StorageReference item : listResult.getItems()) {
-                            item.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    String t = uri.toString();
-                                    list.add(t);
-                                    if (list.size()<=8){
-                                        ImageView imageView = new ImageView(view.getContext());
-                                        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                                        Picasso.get().load(uri).into(imageView);
-                                        viewFlipper.addView(imageView);
-                                    }
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception exception) {
-                                    Toast.makeText(view.getContext(),"lay anh that bai",Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        // Uh-oh, an error occurred!
-                    }
-                });
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+    private void getdata(){
+        list = new ArrayList<>();
+        DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
+        mData.child("banner").limitToLast(8).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String img = snapshot.getValue().toString();
+                list.add(img);
+                ImageView imageView = new ImageView(view.getContext());
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                Picasso.get().load(img).into(imageView);
+                viewFlipper.addView(imageView);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +36,7 @@ public class fragment_dexuat extends Fragment {
     private RcvdexuatAdapter RcvAdapter;
     private RecyclerView recyclerView;
     private ArrayList<truyen> listtruyen;
+    private TextView xemthem;
     ArrayList<String> listID = null;
 
     @Nullable
@@ -42,8 +44,9 @@ public class fragment_dexuat extends Fragment {
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_dexuat,container,false);
         recyclerView =view.findViewById(R.id.rcv_dexuat);
+        xemthem = view.findViewById(R.id.tvcnhn_xemthem);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), 0));
         GetData();
         RcvAdapter.setOnItemTouchListener(new RcvdexuatAdapter.OnItemTouchListener() {
             @Override
@@ -52,6 +55,13 @@ public class fragment_dexuat extends Fragment {
                 Intent intent = new Intent(view.getContext(), detail_truyen.class);
                 intent.putExtra("id",item.id);
                 intent.putExtra("tentruyen",item.tentruyen);
+                startActivity(intent);
+            }
+        });
+        xemthem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),activity_dexuat.class);
                 startActivity(intent);
             }
         });

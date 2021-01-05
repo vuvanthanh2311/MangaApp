@@ -6,6 +6,7 @@
     android:background="#000000"
     android:id="@+id/ll_itemtruyen">
     <LinearLayout
+        android:background="@drawable/button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">

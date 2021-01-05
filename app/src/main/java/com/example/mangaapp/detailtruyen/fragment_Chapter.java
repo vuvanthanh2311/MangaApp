@@ -78,6 +78,8 @@ public class fragment_Chapter extends Fragment {
                                 }
                                 adapter.notifyDataSetChanged();
                             }
+                            final String size = String.valueOf(listchap.size());
+
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -85,9 +87,11 @@ public class fragment_Chapter extends Fragment {
                                     Intent intent = new Intent(view.getContext(),ChapterActivity.class);
                                     intent.putExtra("chap",chap);
                                     intent.putExtra("id",idtruyen);
+                                    intent.putExtra("size",size);
                                     startActivity(intent);
                                 }
                             });
+
                             for (StorageReference item : listResult.getItems()) {
 
                             }

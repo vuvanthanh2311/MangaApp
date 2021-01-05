@@ -33,6 +33,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:name="com.example.mangaapp.fragment.fragment_capnhathangngay"/>
+        <Button
+            android:id="@+id/btn_xemthem"
+            android:textColor="#ffffff"
+            android:text="Xem thêm truyện tranh"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/button_red">
+        </Button>
 
     </LinearLayout>
 </ScrollView>

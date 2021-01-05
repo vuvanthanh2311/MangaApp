@@ -10,9 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mangaapp.comment.Comment;
 import com.example.mangaapp.R;
 import com.example.mangaapp.RcvchapterAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,7 +25,6 @@ import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ChapterActivity extends AppCompatActivity {
     FirebaseStorage storage = FirebaseStorage.getInstance("gs://manga-bead7.appspot.com");
@@ -30,15 +32,93 @@ public class ChapterActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RcvchapterAdapter rcvchapterAdapter;
     ArrayList<String> list;
+    ImageView next,before,comment,back;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter);
-        Intent intent = getIntent();
-        String chap =intent.getStringExtra("chap");
-        String id = intent.getStringExtra("id");
+        final Intent intent = getIntent();
+        final String chap =intent.getStringExtra("chap");
+        final String id = intent.getStringExtra("id");
+        final String size = intent.getStringExtra("size");
 
         recyclerView = findViewById(R.id.rcv_chapter);
+        next = findViewById(R.id.img_chap_next);
+        before = findViewById(R.id.img_chap_before);
+        comment = findViewById(R.id.img_comment);
+        title = findViewById(R.id.Tv_chapter);
+        back = findViewById(R.id.img_chap_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(ChapterActivity.this, Comment.class);
+                intent2.putExtra("id",id);
+                intent2.putExtra("chap",chap);
+                startActivity(intent2);
+            }
+        });
+
+        title.setText("Chapter "+chap);
+
+        int Size = 0;
+
+        for (int i= 0; i<1000;i++){
+            String k = String.valueOf(i);
+            if (k.equals(size)){
+                Size = i;
+            }
+        }
+
+        int Chap = 0;
+
+        for (int i= 0; i<1000;i++){
+            String k = String.valueOf(i);
+            if (k.equals(chap)){
+                 Chap = i;
+            }
+        }
+
+        if (Chap >1){
+            final int cb = Chap -1;
+            before.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String chapter = String.valueOf(cb);
+                    Intent intent1 = new Intent(ChapterActivity.this, ChapterActivity.class);
+                    intent1.putExtra("chap", chapter);
+                    intent1.putExtra("id", id);
+                    intent1.putExtra("size", size);
+                    startActivity(intent1);
+                    finish();
+                }
+            });
+        }
+
+        if (Chap < Size){
+            final int cn = Chap +1;
+            next.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String chapter = String.valueOf(cn);
+                    Intent intent1 = new Intent(ChapterActivity.this, ChapterActivity.class);
+                    intent1.putExtra("chap", chapter);
+                    intent1.putExtra("id", id);
+                    intent1.putExtra("size", size);
+                    startActivity(intent1);
+                    finish();
+                }
+            });
+        }
+
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
@@ -48,6 +128,9 @@ public class ChapterActivity extends AppCompatActivity {
         list = new ArrayList<>();
         rcvchapterAdapter = new RcvchapterAdapter(ChapterActivity.this,list);
         recyclerView.setAdapter(rcvchapterAdapter);
+
+
+
         if (id !=null) {
 
             final StorageReference listRef = storage.getReference().child(id +"/chapter" +chap);

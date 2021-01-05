@@ -56,7 +56,7 @@ public class detail_truyen extends AppCompatActivity {
     fragment_Chapter chapter;
     TextView tvtentruyen;
     LinearLayout  llfavorite,llfavoritered;
-    ImageView imgtruyen ,imgshare;
+    ImageView imgtruyen ,imgshare, back;
     Button btnbdx;
     RecyclerView rcvtheloai;
     String id;
@@ -73,8 +73,15 @@ public class detail_truyen extends AppCompatActivity {
         imgshare =findViewById(R.id.img_share);
         llfavorite = findViewById(R.id.ll_favorite);
         llfavoritered =findViewById(R.id.ll_favorite_red);
+        back = findViewById(R.id.img_detail_back);
         mAuth = FirebaseAuth.getInstance();
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         tabLayout.setupWithViewPager(viewPager);
         Intent intent = getIntent();
@@ -157,7 +164,6 @@ public class detail_truyen extends AppCompatActivity {
     private void updateUI(FirebaseUser currentUser) {
         if(currentUser!=null){
             final String uid = currentUser.getUid();
-            Toast.makeText(this,uid,Toast.LENGTH_SHORT).show();
             mData.child("follow").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:src="@drawable/person"
+            android:src="@drawable/ic_baseline_person_pin_24"
             android:id="@+id/img_person"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -75,6 +75,7 @@
                 android:padding="15dp"
                 android:textColor="#000000"/>
             <TextView
+                android:background="@drawable/button"
                 android:textSize="20dp"
                 android:text="Giới thiệu chúng tôi"
                 android:id="@+id/tv_gioithieu"
@@ -83,6 +84,7 @@
                 android:padding="15dp"
                 android:textColor="#000000"/>
             <TextView
+                android:background="@drawable/button"
                 android:textSize="20dp"
                 android:text="Đăng nhập"
                 android:id="@+id/tv_dangnhap"
@@ -91,6 +93,7 @@
                 android:padding="15dp"
                 android:textColor="#000000"/>
             <TextView
+                android:background="@drawable/button"
                 android:textSize="20dp"
                 android:text="Đăng xuất"
                 android:id="@+id/tv_dangxuat"

@@ -5,9 +5,9 @@
     android:orientation="vertical"
     android:gravity="center">
     <ImageView
-        android:scaleType="centerInside"
         android:id="@+id/img_chapter"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"/>
 
 </LinearLayout>

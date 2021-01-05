@@ -58,7 +58,7 @@ public class truyenAdapter extends RecyclerView.Adapter<truyenAdapter.RcvViewhol
         holder.tentacgia.setText(listtruyen.tentacgia);
         Picasso.get().load(listtruyen.linkhinh).into(holder.imgtruyen);
         holder.rcvtheloai.setItemAnimator(new DefaultItemAnimator());
-        holder.rcvtheloai.addItemDecoration(new DividerItemDecoration(holder.rcvtheloai.getContext(), DividerItemDecoration.VERTICAL));
+        holder.rcvtheloai.addItemDecoration(new DividerItemDecoration(holder.rcvtheloai.getContext(), 0));
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         holder.rcvtheloai.setLayoutManager(layoutManager);
