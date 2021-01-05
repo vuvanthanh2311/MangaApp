@@ -1,5 +1,6 @@
 package com.example.mangaapp.comment;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.app.Activity;
 import android.content.Intent;
@@ -25,6 +27,7 @@ import com.example.mangaapp.RcvhangngayAdapter;
 import com.example.mangaapp.detailtruyen.ChapterActivity;
 import com.example.mangaapp.themtruyen;
 import com.example.mangaapp.truyen;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -35,7 +38,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
 import java.util.Calendar;
+
 import java.util.Date;
 import java.util.HashMap;
 
@@ -44,7 +49,9 @@ public class Comment extends AppCompatActivity {
     final DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
     EditText comment;
     TextView title;
+
     ImageButton back, send;
+
     private commentAdapter RcvAdapter;
     private RecyclerView recyclerView;
     private ArrayList<commentclass> listcm;
@@ -56,6 +63,7 @@ public class Comment extends AppCompatActivity {
         final Intent intent = getIntent();
         final String chap = intent.getStringExtra("chap");
         final String id = intent.getStringExtra("id");
+
 
 
         Anhxa();

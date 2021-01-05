@@ -1,11 +1,14 @@
 package com.example.mangaapp;
 
+
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+
 
 public class start_activity extends AppCompatActivity {
 
