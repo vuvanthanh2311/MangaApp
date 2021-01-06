@@ -12,33 +12,33 @@
             android:layout_height="280dp">
 
         </ViewFlipper>
-        <ImageView
-            android:layout_alignParentEnd="true"
-            android:id="@+id/Icon_search"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_search_24"
-            android:layout_marginTop="40dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button_black"
-            android:layout_alignParentRight="true" />
-        <ImageView
-            android:background="@drawable/button_black"
-            android:id="@+id/img_before"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_navigate_before_24"
-            android:layout_centerVertical="true"/>
-        <ImageView
-            android:background="@drawable/button_black"
-            android:id="@+id/img_next"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_navigate_next_24"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+<!--        <ImageView-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:id="@+id/Icon_search"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:src="@drawable/ic_baseline_search_24"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:paddingRight="10dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:background="@drawable/button_black"-->
+<!--            android:layout_alignParentRight="true" />-->
+<!--        <ImageView-->
+<!--            android:background="@drawable/button_black"-->
+<!--            android:id="@+id/img_before"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:src="@drawable/ic_baseline_navigate_before_24"-->
+<!--            android:layout_centerVertical="true"/>-->
+<!--        <ImageView-->
+<!--            android:background="@drawable/button_black"-->
+<!--            android:id="@+id/img_next"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:src="@drawable/ic_baseline_navigate_next_24"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_centerVertical="true"/>-->
         <me.relex.circleindicator.CircleIndicator
             android:id="@+id/indicatordefault"
             android:layout_marginStart="150dp"

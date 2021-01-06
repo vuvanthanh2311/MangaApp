@@ -42,7 +42,7 @@ public class fragment_banner extends Fragment {
     FirebaseStorage storage = FirebaseStorage.getInstance("gs://manga-bead7.appspot.com");
     private ViewFlipper viewFlipper;
     Animation in, out, move_in, move_out;
-    ImageView next, before, find;
+//    ImageView next, before, find;
     ArrayList<String> list;
     ArrayList<truyen> listtruyen;
     @Nullable
@@ -50,9 +50,9 @@ public class fragment_banner extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_banner,container,false);
         viewFlipper = view.findViewById(R.id.vfp_banner);
-        next = view.findViewById(R.id.img_next);
-        before = view.findViewById(R.id.img_before);
-        find = view.findViewById(R.id.Icon_search);
+//        next = view.findViewById(R.id.img_next);
+//        before = view.findViewById(R.id.img_before);
+//        find = view.findViewById(R.id.Icon_search);
         getdata();
 //        for (int i=0; i<=listtruyen.size();i++){
 //            truyen m = listtruyen.get(i);
@@ -71,35 +71,35 @@ public class fragment_banner extends Fragment {
         viewFlipper.setOutAnimation(out);
         viewFlipper.setFlipInterval(9000);
         viewFlipper.setAutoStart(true);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (viewFlipper.isAutoStart()){
-                    viewFlipper.stopFlipping();
-                    viewFlipper.showNext();
-                    viewFlipper.startFlipping();
-                    viewFlipper.setAutoStart(true);
-                }
-            }
-        });
-        before.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (viewFlipper.isAutoStart()){
-                    viewFlipper.stopFlipping();
-                    viewFlipper.showPrevious();
-                    viewFlipper.startFlipping();
-                    viewFlipper.setAutoStart(true);
-                }
-            }
-        });
-        find.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), Find.class);
-                startActivity(intent);
-            }
-        });
+//        next.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (viewFlipper.isAutoStart()){
+//                    viewFlipper.stopFlipping();
+//                    viewFlipper.showNext();
+//                    viewFlipper.startFlipping();
+//                    viewFlipper.setAutoStart(true);
+//                }
+//            }
+//        });
+//        before.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (viewFlipper.isAutoStart()){
+//                    viewFlipper.stopFlipping();
+//                    viewFlipper.showPrevious();
+//                    viewFlipper.startFlipping();
+//                    viewFlipper.setAutoStart(true);
+//                }
+//            }
+//        });
+//        find.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(view.getContext(), Find.class);
+//                startActivity(intent);
+//            }
+//        });
         viewFlipper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -2,13 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
-
-    <TextView
+    android:orientation="vertical"
+    android:padding="10dp">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Khám Phá"
-        android:textSize="30dp"
-        android:gravity="center"/>
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+        <EditText
+            android:textSize="16dp"
+            android:id="@+id/edt_find1"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_background"/>
+        <Button
+            android:id="@+id/btn_find1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Tìm"
+            android:textSize="18dp"
+            android:background="@drawable/button_black"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:android = "http://schemas.android.com/apk/res/android"
+            xmlns:app = "http://schemas.android.com/apk/res-auto">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcv_Find1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior = "@string/appbar_scrolling_view_behavior"/>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
 
 </LinearLayout>

@@ -32,14 +32,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_calendar:
                         viewPager.setCurrentItem(1);
                         break;
-//                    case R.id.nav_explore:
-//                        viewPager.setCurrentItem(2);
-//                        break;
-                    case R.id.nav_favorite:
+                    case R.id.nav_explore:
                         viewPager.setCurrentItem(2);
                         break;
-                    case R.id.nav_person:
+                    case R.id.nav_favorite:
                         viewPager.setCurrentItem(3);
+                        break;
+                    case R.id.nav_person:
+                        viewPager.setCurrentItem(4);
                         break;
 
                 }
@@ -69,13 +69,13 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         bottomNavigationView.getMenu().findItem(R.id.nav_calendar).setChecked(true);
                         break;
-//                    case 2:
-//                        bottomNavigationView.getMenu().findItem(R.id.nav_explore).setChecked(true);
-//                        break;
                     case 2:
-                        bottomNavigationView.getMenu().findItem(R.id.nav_favorite).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.nav_explore).setChecked(true);
                         break;
                     case 3:
+                        bottomNavigationView.getMenu().findItem(R.id.nav_favorite).setChecked(true);
+                        break;
+                    case 4:
                         bottomNavigationView.getMenu().findItem(R.id.nav_person).setChecked(true);
                         break;
                 }
