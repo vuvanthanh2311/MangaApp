@@ -4,11 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,38 +11,33 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mangaapp.R;
 
-import com.example.mangaapp.truyen;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-
-public class commentAdapter extends RecyclerView.Adapter<commentAdapter.RcvViewholder> {
+public class blctAdapter extends RecyclerView.Adapter<blctAdapter.RcvViewholder> {
 
     Context context;
     ArrayList<commentclass> arrcomment;
 
-    public commentAdapter(Context context, ArrayList<commentclass> arrcomment) {
+    public blctAdapter(Context context, ArrayList<commentclass> arrcomment) {
         this.context = context;
         this.arrcomment = arrcomment;
     }
     @NonNull
     @Override
-    public RcvViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public blctAdapter.RcvViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_coment,parent,false);
-        return new RcvViewholder(view);
+        return new blctAdapter.RcvViewholder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RcvViewholder holder, int position) {
+    public void onBindViewHolder(@NonNull blctAdapter.RcvViewholder holder, int position) {
 
         commentclass Listcomment = arrcomment.get(position);
         holder.content.setText(Listcomment.content);
         holder.name.setText(Listcomment.user);
         holder.chapter.setText("Chapter "+Listcomment.chapter);
         holder.tentruyen.setText(Listcomment.tentruyen);
+        holder.tentruyen.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -56,7 +46,7 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.RcvViewh
     }
 
     public class RcvViewholder extends RecyclerView.ViewHolder {
-//        ImageView person;
+        //        ImageView person;
         TextView content, name, chapter,time,tentruyen;
         public RcvViewholder(@NonNull View itemView) {
             super(itemView);
@@ -69,3 +59,4 @@ public class commentAdapter extends RecyclerView.Adapter<commentAdapter.RcvViewh
         }
     }
 }
+

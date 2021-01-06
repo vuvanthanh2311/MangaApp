@@ -43,13 +43,27 @@
             android:textSize="16dp"
             android:layout_marginLeft="20dp"/>
 
-        <TextView
-            android:id="@+id/tv_cm_chapter"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="13dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"/>
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_cm_tentruyen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:layout_marginLeft="20dp" />
+            <TextView
+                android:id="@+id/tv_cm_chapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:layout_marginLeft="20dp" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/tv_cm_date"
             android:layout_width="wrap_content"

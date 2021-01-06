@@ -73,9 +73,10 @@ public class Comment extends AppCompatActivity {
 
         GetData(id, chap);
 
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            String uid = currentUser.getUid();
+            final String uid = currentUser.getUid();
             mData.child("user").child(uid).child("Name").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -83,13 +84,26 @@ public class Comment extends AppCompatActivity {
                     send.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            HashMap<String, Object> hashMap = new HashMap<>();
-                            hashMap.put("chapter", chap);
-                            hashMap.put("content",comment.getText().toString());
-                            hashMap.put("user",u);
-                            hashMap.put("time",new Date());
-                            mData.child("Comment").child(id).child(chap).push().setValue(hashMap);
-                            comment.setText("");
+                            mData.child("manga").child(id).child("tentruyen").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    final String tentruyen =snapshot.getValue().toString();
+                                    HashMap<String, Object> hashMap = new HashMap<>();
+                                    hashMap.put("chapter", chap);
+                                    hashMap.put("content",comment.getText().toString());
+                                    hashMap.put("user",u);
+                                    hashMap.put("tentruyen",tentruyen);
+                                    hashMap.put("time",new Date());
+                                    mData.child("Comment").child(id).child(chap).push().setValue(hashMap);
+                                    mData.child("Mycomment").child(uid).push().setValue(hashMap);
+                                    comment.setText("");
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
                         }
                     });
                 }
@@ -127,8 +141,6 @@ public class Comment extends AppCompatActivity {
 
         RcvAdapter = new commentAdapter(Comment.this, listcm);
         recyclerView.setAdapter(RcvAdapter);
-
-
 
         mData.child("Comment").child(id).child(chapter).addChildEventListener(new ChildEventListener() {
             @Override

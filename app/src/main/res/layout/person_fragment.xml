@@ -59,6 +59,7 @@
                 android:padding="15dp"
                 android:textColor="#000000"/>
             <TextView
+                android:background="@drawable/button"
                 android:textSize="20dp"
                 android:text="Bình luận của tôi"
                 android:id="@+id/tv_binhluan"

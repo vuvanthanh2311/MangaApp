@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.mangaapp.R;
 import com.example.mangaapp.login.Login;
 import com.example.mangaapp.login.Start;
+import com.example.mangaapp.person.activity_blct;
 import com.example.mangaapp.person.activity_gtct;
 import com.example.mangaapp.themtruyen;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,6 +51,14 @@ public class personfragment extends Fragment {
         mData = FirebaseDatabase.getInstance().getReference();
 
         setdata();
+
+        tvbinhluan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), activity_blct.class);
+                startActivity(intent);
+            }
+        });
 
         tvgioithieu.setOnClickListener(new View.OnClickListener() {
             @Override

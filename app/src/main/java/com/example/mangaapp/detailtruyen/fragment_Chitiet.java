@@ -81,13 +81,12 @@ public class fragment_Chitiet extends Fragment {
 
         for (int i=1;i<=100;i++){
             String chap = String.valueOf(i);
-                mData.child("Comment").child(id).child(chap).addChildEventListener(new ChildEventListener() {
+                mData.child("Comment").child(id).child(chap).limitToLast(15).addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                         commentclass cm = snapshot.getValue(commentclass.class);
                         listcm.add(cm);
                         RcvAdapter.notifyDataSetChanged();
-                        Log.e("aaaaaaaa",listcm.size()+"");
                     }
 
                     @Override
