@@ -73,11 +73,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:text="Intagram"/>
+            android:text="Instagram"
+            android:textSize="16dp" />
         <TextView
             android:gravity="right"
             android:layout_width="match_parent"
