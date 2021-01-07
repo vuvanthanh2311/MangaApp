@@ -24,6 +24,6 @@ public class start_activity extends AppCompatActivity {
                 Intent intent = new Intent(start_activity.this,MainActivity.class);
                 startActivity(intent);
             }
-        }, 5000);
+        }, 4000);
     }
 }

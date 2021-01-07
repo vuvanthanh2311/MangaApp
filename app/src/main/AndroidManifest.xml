@@ -12,8 +12,9 @@
         android:roundIcon="@mipmap/iconmanga"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".person.activity_blct"></activity>
-        <activity android:name=".start_activity" />
+        <activity android:name=".activity_phyk"></activity>
+        <activity android:name=".person.activity_blct" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".person.activity_gtct" />
         <activity android:name=".fragment.activity_dexuat" />
         <activity android:name=".comment.Comment" />
@@ -24,7 +25,7 @@
         <activity android:name=".themtruyen" />
         <activity android:name=".login.Login" />
         <activity android:name=".login.Register" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".start_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

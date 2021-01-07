@@ -48,7 +48,7 @@
         android:textSize="18dp"
         android:text="Đánh giá"/>
     <LinearLayout
-        android:background="#D6D0C3"
+        android:background="@drawable/edt_background"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_margin="1dp"
-        android:background="#D6D0C3"
+        android:background="@drawable/edt_background"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16dp"
-            android:text="Intagram"/>
+            android:text="Instagram"/>
         <TextView
             android:gravity="right"
             android:layout_width="match_parent"
@@ -88,7 +88,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_margin="1dp"
-        android:background="#D6D0C3"
+        android:background="@drawable/edt_background"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

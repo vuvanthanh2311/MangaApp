@@ -69,7 +69,7 @@ public class fragment_banner extends Fragment {
 //        move_out = AnimationUtils.loadAnimation(view.getContext(),R.anim.anim_move_out);
         viewFlipper.setInAnimation(in);
         viewFlipper.setOutAnimation(out);
-        viewFlipper.setFlipInterval(9000);
+        viewFlipper.setFlipInterval(6000);
         viewFlipper.setAutoStart(true);
 //        next.setOnClickListener(new View.OnClickListener() {
 //            @Override

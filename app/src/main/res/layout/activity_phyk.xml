@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".person.activity_gtct">
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_phyk_back"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:text="Phản hồi ý kiến"
+            android:gravity="center"
+            android:layout_marginRight="60dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Chào mừng bạn đến với chúng tôi"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#F80303"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@drawable/logo"/>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tvname"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Name:"/>
+        <EditText
+            android:hint="Vũ Văn Thành"
+            android:id="@+id/phyk_name"
+            android:layout_gravity="left"
+            android:inputType="textPersonName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_background"/>
+        <TextView
+            android:id="@+id/tvemail"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Email:"/>
+        <EditText
+            android:hint="abc@gmail.com"
+            android:id="@+id/phyk_email"
+            android:layout_gravity="left"
+            android:inputType="textEmailAddress"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_background"/>
+        <TextView
+            android:id="@+id/tvcontent"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Ý kiến phản hồi:"/>
+        <EditText
+            android:hint="Description"
+            android:gravity="top"
+            android:id="@+id/phyk_content"
+            android:minLines="4"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_background"/>
+        <Button
+            android:id="@+id/btn_phyk"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:background="@drawable/button_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gửi phản hồi"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvphyk"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp" />
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btn_quaylai"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:background="@drawable/button_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quay Lại"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.mangaapp.R;
+import com.example.mangaapp.activity_phyk;
 import com.example.mangaapp.login.Login;
 import com.example.mangaapp.login.Start;
 import com.example.mangaapp.person.activity_blct;
@@ -39,9 +40,9 @@ public class personfragment extends Fragment {
         final View view = inflater.inflate(R.layout.person_fragment, container, false);
         imgperson = view.findViewById(R.id.img_person);
         tvten = view.findViewById(R.id.tv_person);
-        tvnaptien = view.findViewById(R.id.tv_naptien);
-        tvavatar= view.findViewById(R.id.tv_avatar);
-        tvtinnhan= view.findViewById(R.id.tv_tinnhan);
+//        tvnaptien = view.findViewById(R.id.tv_naptien);
+//        tvavatar= view.findViewById(R.id.tv_avatar);
+//        tvtinnhan= view.findViewById(R.id.tv_tinnhan);
         tvbinhluan= view.findViewById(R.id.tv_binhluan);
         tvphanhoi = view.findViewById(R.id.tv_phanhoi);
         tvgioithieu= view.findViewById(R.id.tv_gioithieu);
@@ -52,6 +53,13 @@ public class personfragment extends Fragment {
 
         setdata();
 
+        tvphanhoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), activity_phyk.class);
+                startActivity(intent);
+            }
+        });
         tvbinhluan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
