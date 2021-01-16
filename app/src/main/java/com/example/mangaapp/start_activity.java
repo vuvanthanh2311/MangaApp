@@ -23,6 +23,7 @@ public class start_activity extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(start_activity.this,MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         }, 4000);
     }
